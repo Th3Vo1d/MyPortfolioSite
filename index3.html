@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proje Detayları</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #0f1724;
+      color: #e6eef8;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px
+    }
+
+    a {
+      color: #7c3aed;
+      text-decoration: none
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0 0 12px
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 20px
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 20px
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #94a3b8
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a href="index2.html" class="back">← Geri dön</a>
+    <h1>[Oyun Adı-Piano]</h1>
+    <p style="color:#94a3b8;">Unreal Engine 5 • Mobile Prototype</p>
+    <p>
+      Basılan notalar için tekrar oynatma mekaniği
+    </p>
+
+    <h2>🎬 Tanıtım Videosu</h2>
+    <div class="video-container">
+      <video width="100%" height="auto" controls style="border-radius:12px; margin-bottom:20px;">
+        <source src="/videos/Piano.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div style="margin-top:24px">
+      <a href="https://volbol.com/" target="_blank" style="background:linear-gradient(90deg,#7c3aed,#06b6d4);
+         color:#061223;padding:8px 14px;border-radius:8px;
+         text-decoration:none;font-weight:600;">Volbol Sayfasına Git</a>
+    </div><br>
+
+    <h1>[Oyun Adı-Periodic Table]</h1>
+    <p style="color:#94a3b8;">Unreal Engine 5 • Mobile Prototype</p>
+    <p>
+      İlk 20 element için soru-cevap mekaniği
+    </p>
+
+    <h2>🎬 Tanıtım Videosu</h2>
+    <div class="video-container">
+      <video width="100%" height="auto" controls style="border-radius:12px; margin-bottom:20px;">
+        <source src="/videos/Periodic_Table.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div style="margin-top:24px">
+      <a href="https://volbol.com/" target="_blank" style="background:linear-gradient(90deg,#7c3aed,#06b6d4);
+         color:#061223;padding:8px 14px;border-radius:8px;
+         text-decoration:none;font-weight:600;">Volbol Sayfasına Git</a>
+    </div>
+  </div>
+</body>
+
+</html>

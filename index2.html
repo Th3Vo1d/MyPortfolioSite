@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MyPortfolio</title>
+    <meta name="description"
+        content="Rollic Game Jam için hızlı prototipleme ve mobil odaklı oyun geliştirme portfolyosu." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --muted: #94a3b8;
+            --accent: #7c3aed;
+            --glass: rgba(255, 255, 255, 0.04);
+            --maxwidth: 1100px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(180deg, #071025 0%, var(--bg) 100%);
+            color: #e6eef8
+        }
+
+        a {
+            color: inherit
+        }
+
+        .container {
+            max-width: var(--maxwidth);
+            margin: 32px auto;
+            padding: 24px
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), #2dd4bf);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 20px
+        }
+
+        p.lead {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        main {
+            margin-top: 28px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 24px
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), var(--card));
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.6);
+        }
+
+        .about {
+            line-height: 1.6
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--glass);
+            color: var(--muted);
+            font-size: 13px;
+            margin-right: 8px
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px
+        }
+
+        .proj {
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+            transition: transform .14s ease, box-shadow .14s ease
+        }
+
+        .proj:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(2, 6, 23, 0.6)
+        }
+
+        .proj h3 {
+            margin: 0 0 6px;
+            font-size: 16px
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .sidebar h4 {
+            margin-top: 0
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .skill {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .contact a {
+            display: inline-block;
+            margin-right: 8px;
+            margin-top: 8px;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--accent), #06b6d4);
+            color: #061223;
+            font-weight: 600
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(2, 6, 23, 0.6);
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity .18s ease, visibility .18s
+        }
+
+        .modal.open {
+            visibility: visible;
+            opacity: 1
+        }
+
+        .modal-card {
+            width: min(920px, 96%);
+            background: linear-gradient(180deg, #071428, #081227);
+            padding: 18px;
+            border-radius: 12px
+        }
+
+        .modal-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        footer {
+            margin-top: 28px;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: center
+        }
+
+        @media (max-width:980px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .sidebar {
+                order: 2
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div>
+                    <h1 id="display-name">Ahmet Eren Özen</h1>
+                    <p class="lead">Game Developer • Programmer</p>
+                </div>
+            </div>
+            <nav>
+                <a href="#projects" style="color:var(--muted);margin-right:12px">Projeler</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="grid">
+                <section>
+                    <div class="card about">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+                            <div>
+                                <h2 style="margin:6px 0 10px">Hakkımda</h2>
+                                <p>20 yaşında bağımsız bir geliştiriciyim.
+                                    Son bir yıldır Unreal Engine 5 üzerinde çalışarak oyun mekanikleri, seviye tasarımı
+                                    ve Blueprint sistemleri üzerine yoğunlaştım.Şu anda kendi korku oyunum üzerinde çalışıyorum.</p>
+                                <p style="color:var(--muted);font-size:13px;margin-top:8px">📌 Henüz bir game jam’e
+                                    katılmadım ancak kısa sürede fikir üretmek, prototip geliştirmek ve ekiplerle
+                                    çalışmak için sabırsızlanıyorum. Bu Game Jam, üretkenliğimi
+                                    ve oyun tasarımı yaklaşımımı test etmek için ilk adımım olacak.</p>
+                            </div>
+                            <div style="min-width:140px;text-align:right">
+                                <p style="color:var(--muted)">Roller</p>
+                                <strong>Game Developer<br>Programmer</strong>
+                                <p style="color:var(--muted);margin-top:12px">Araçlar</p>
+                                <div class="skills" style="justify-content:flex-end">
+                                    <span class="skill">Unreal Engine 5</span>
+                                    <span class="skill">C#</span>
+                                    <span class="skill">Unity</span>
+                                    <span class="skill">Blueprints</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="projects" style="margin-top:18px">
+                        <h2 style="margin:6px 0 12px">Projeler</h2>
+                        <div class="projects">
+                            <div class="proj card" data-title="[Oyun Adı]" data-desc="Kısa açıklama..."
+                                onclick="openModal(this)">
+                                <h3>[Oyun Adı-Piano]</h3>
+                                <div class="meta">Unreal Engine 5• Mobile Prototype</div>
+                                <p class="meta" style="margin-top:8px;color:var(--muted)">Basılan notalar için tekrar
+                                    oynatma mekaniği • Developer</p>
+                                <a href="index3.html" target="_blank" style="background:linear-gradient(90deg,var(--accent),#06b6d4);
+                                         color:#061223;padding:6px 12px;border-radius:8px;
+                                         text-decoration:none;font-weight:600;font-size:13px;">
+                                    Detaylar
+                                </a>
+                            </div>
+                            <div class="proj card" data-title="[Oyun Adı 2]" data-desc="Kısa açıklama 2..."
+                                onclick="openModal(this)">
+                                <h3>[Oyun Adı-Periodic Table]</h3>
+                                <div class="meta">Unreal Engine 5 • Mobile Prototype</div>
+                                <p class="meta" style="margin-top:8px;color:var(--muted)">İlk 20 element için soru-cevap
+                                    mekaniği • Developer</p>
+                                <a href="index3.html" target="_blank" style="background:linear-gradient(90deg,var(--accent),#06b6d4);
+                                         color:#061223;padding:6px 12px;border-radius:8px; 
+                                         text-decoration:none;font-weight:600;font-size:13px;">
+                                    Detaylar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="current-dev" style="margin-top:28px">
+                        <h2 style="margin:6px 0 12px">Geliştirilmekte Olan Oyun</h2>
+                        <div class="card" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+                            <img src="/images/InReverse.png" alt="Current Game Screenshot"
+                                style="width:340px;max-width:100%;border-radius:12px;object-fit:cover;">
+                            <div style="flex:1;min-width:260px">
+                                <h3 style="margin:0 0 6px;">[Oyun Adı — In Reverse]</h3>
+                                <div class="meta">Unreal Engine 5 • FPS • Tek Kişilik • Devam Ediyor</div>
+                                <p style="margin-top:12px;line-height:1.6;color:var(--muted)">
+                                    Bu proje hâlen geliştirme aşamasında. Yaklaşık 2 saatlik, hikâye odaklı bir korku
+                                    deneyimi sunmayı hedefliyorum.
+                                    Şu anda temel mekanikler, atmosfer tasarımı ve oyuncu etkileşim sistemleri üzerinde
+                                    çalışıyorum.
+                                </p>
+                                <ul style="margin-top:10px;color:var(--muted);font-size:14px;line-height:1.6;">
+                                    <li>🎮 Tür: Psikolojik Korku / Hikâye Odaklı FPS</li>
+                                    <li>🧠 Odak: Oyuncu algısını test eden atmosferik deneyim</li>
+                                    <li>🚧 Durum: Aktif geliştirme sürecinde (demo hazırlanıyor)</li>
+                                </ul>
+                                <div style="margin-top:14px">
+                                    <span
+                                        style="display:inline-block;padding:8px 14px;border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:var(--muted);font-weight:500;">
+                                        Demo yakında eklenecek
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:18px">
+                        <h2 style="margin:6px 0 12px">Game Jam Deneyimi & Yaklaşım</h2>
+                        <div class="card">
+                            <p><strong>Yaklaşımım:</strong> Game Jam’leri, kendimi geliştirmek ve farklı türlerde oyun fikirleri denemek için bir fırsat olarak görüyorum. Her jam benim için yeni bir şey öğrenme, üretkenliğimi sınama fırsatı olduğunu düşünüyorum.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="sidebar">
+                    <div class="card">
+                        <h4>Teknolojiler</h4>
+                        <div class="skills" style="margin-top:12px">
+                            <span class="skill">Unreal Engine 5</span>
+                            <span class="skill">Blueprints</span>
+                            <span class="skill">C#</span>
+                            <span class="skill">Unity</span>
+
+                        </div>
+                        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:14px 0">
+                        <h4>İletişim</h4>
+                        <div class="contact" id="contact">
+                            <a href="erennozen0@gmail.com">E-posta Gönder</a>
+                            <a href="https://github.com/Th3Vo1d"
+                                style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);">GitHub</a>
+                </aside>
+            </div>
+        </main>
+
+        <footer>
+            <div>© <span id="year"></span> [Ahmet Eren Özen] — Rollic Game Jam Başvuru Portfolyosu</div>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        function openModal(el) {
+            const m = document.getElementById('modal');
+            const title = el.getAttribute('data-title') || 'Başlık';
+            const desc = el.getAttribute('data-desc') || '';
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').innerHTML = '<p style="color:#cfe9ff">' + desc + '</p>' + '<p style="color:var(--muted)">🔗 Linkler: <a href="#" style="color:var(--accent)">Video / itch.io</a></p>';
+            m.classList.add('open');
+        }
+        function closeModal(e) {
+            if (e.target.id === 'modal' || e.target.tagName === 'BUTTON') {
+                document.getElementById('modal').classList.remove('open');
+            }
+        }
+        (function () {
+            const logo = document.querySelector('.logo');
+            const name = document.getElementById('display-name').textContent || '';
+            const initials = name.split(' ').map(s => s[0]).slice(0, 2).join('') || 'JS';
+            logo.textContent = initials.toUpperCase();
+        })();
+    </script>
+</body>
+
+</html>
